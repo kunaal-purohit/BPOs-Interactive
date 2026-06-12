@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Onvego DCC — US BPO Sales Campaign</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f3; color: #1a1a18; min-height: 100vh; padding: 2rem; }
+  .page { max-width: 900px; margin: 0 auto; }
+  .camp-header { margin-bottom: 1.5rem; }
+  .camp-header h1 { font-size: 22px; font-weight: 500; color: #1a1a18; margin: 0 0 4px; }
+  .camp-header p { font-size: 14px; color: #666; margin: 0; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 1.5rem; }
+  .stat { background: #ededeb; border-radius: 8px; padding: 12px 14px; }
+  .stat-label { font-size: 12px; color: #666; margin-bottom: 4px; }
+  .stat-val { font-size: 22px; font-weight: 500; color: #1a1a18; }
+  .tabs { display: flex; border-bottom: 0.5px solid #d3d1c7; margin-bottom: 1.5rem; }
+  .tab { padding: 8px 16px; font-size: 14px; cursor: pointer; color: #666; border-bottom: 2px solid transparent; margin-bottom: -1px; background: none; border-top: none; border-left: none; border-right: none; font-family: inherit; }
+  .tab.active { color: #1a1a18; border-bottom-color: #1a1a18; font-weight: 500; }
+  .bpo-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .bpo-table th { text-align: left; padding: 8px 10px; color: #666; font-weight: 500; font-size: 12px; border-bottom: 0.5px solid #d3d1c7; }
+  .bpo-table td { padding: 10px 10px; border-bottom: 0.5px solid #d3d1c7; color: #1a1a18; vertical-align: middle; }
+  .bpo-table tr:hover td { background: #f0efed; }
+  .tier-badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 500; }
+  .tier-a { background: #E1F5EE; color: #085041; }
+  .tier-b { background: #E6F1FB; color: #0C447C; }
+  .tier-c { background: #F1EFE8; color: #444441; }
+  .email-panel { display: none; }
+  .email-panel.active { display: block; }
+  .email-card { background: #fff; border: 0.5px solid #d3d1c7; border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; }
+  .email-header { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
+  .avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 500; flex-shrink: 0; }
+  .av-teal { background: #E1F5EE; color: #085041; }
+  .av-blue { background: #E6F1FB; color: #0C447C; }
+  .av-purple { background: #EEEDFE; color: #3C3489; }
+  .av-coral { background: #FAECE7; color: #712B13; }
+  .contact-name { font-size: 15px; font-weight: 500; color: #1a1a18; margin: 0 0 2px; }
+  .contact-sub { font-size: 12px; color: #666; margin: 0; }
+  .email-meta { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; font-size: 12px; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 0.5px solid #d3d1c7; }
+  .meta-label { color: #666; font-weight: 500; }
+  .meta-val { color: #1a1a18; }
+  .email-body { font-size: 13px; line-height: 1.7; color: #1a1a18; white-space: pre-wrap; }
+  .copy-btn { margin-top: 12px; padding: 6px 14px; font-size: 12px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; background: none; border: 0.5px solid #b4b2a9; border-radius: 8px; color: #666; font-family: inherit; }
+  .copy-btn:hover { background: #f0efed; }
+  .select-btn { padding: 4px 10px; font-size: 12px; cursor: pointer; background: none; border: 0.5px solid #b4b2a9; border-radius: 8px; color: #666; font-family: inherit; }
+  .select-btn:hover { background: #f0efed; }
+  .email-nav { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; }
+  .nav-btn { padding: 6px 12px; font-size: 13px; cursor: pointer; background: none; border: 0.5px solid #b4b2a9; border-radius: 8px; color: #666; display: flex; align-items: center; gap: 4px; font-family: inherit; }
+  .nav-btn:hover { background: #f0efed; }
+  .email-counter { font-size: 13px; color: #666; flex: 1; text-align: center; }
+  .table-panel { display: none; }
+  .table-panel.active { display: block; }
+  .insight-box { background: #f0efed; border-left: 3px solid #1D9E75; border-radius: 0 8px 8px 0; padding: 10px 14px; margin-bottom: 1.5rem; font-size: 13px; color: #555; line-height: 1.6; }
+  .ffvc-tag { display: inline-block; background: #E1F5EE; color: #085041; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 12px; margin-bottom: 12px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div style="margin-bottom: 8px;"><span class="ffvc-tag">ff Venture Capital — Portfolio Outreach</span></div>
+  <div class="camp-header">
+    <h1>Onvego DCC — US BPO sales campaign</h1>
+    <p>20 target BPOs · Modeled on Babcom Centers profile · ffVC warm intro angle</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-label">Target BPOs</div><div class="stat-val">20</div></div>
+    <div class="stat"><div class="stat-label">Tier A (best fit)</div><div class="stat-val">7</div></div>
+    <div class="stat"><div class="stat-label">Unique contacts</div><div class="stat-val">20</div></div>
+    <div class="stat"><div class="stat-label">Custom emails</div><div class="stat-val">20</div></div>
+  </div>
+
+  <div class="insight-box">
+    <strong>Babcom profile:</strong> ~$277M revenue, enterprise-grade outsourced CX centers (Matrix Group subsidiary), high-volume inbound/outbound, multilingual, services banking/telco/insurance. US analogs: mid-to-large CX-focused BPOs with 500–10,000 agents, multi-vertical, open to AI/tech vendor partnerships.
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('list')">BPO target list</button>
+    <button class="tab" onclick="switchTab('emails')">Email drafts</button>
+  </div>
+
+  <div id="list-panel" class="table-panel active">
+    <table class="bpo-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Company</th>
+          <th>HQ</th>
+          <th>Size</th>
+          <th>CX focus</th>
+          <th>Fit tier</th>
+          <th>Target contact title</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="bpo-tbody"></tbody>
+    </table>
+  </div>
+
+  <div id="emails-panel" class="email-panel">
+    <div class="email-nav">
+      <button class="nav-btn" onclick="prevEmail()"><i class="ti ti-arrow-left"></i> Prev</button>
+      <span class="email-counter" id="email-counter">1 / 20</span>
+      <button class="nav-btn" onclick="nextEmail()">Next <i class="ti ti-arrow-right"></i></button>
+    </div>
+    <div id="email-container"></div>
+  </div>
+</div>
+
+<script>
+const bpos = [
+  { id:1, name:"TTEC", hq:"Greenwood Village, CO", size:"~50,000 agents", focus:"CX strategy + BPO delivery, omnichannel", tier:"A", contact:"SVP, CX Innovation", avatar:"TT", ac:"av-teal", angle:"TTEC's dual model (consulting + BPO) makes them ideal for embedding Onvego as the AI backbone across their delivery arm." },
+  { id:2, name:"Sutherland Global Services", hq:"Rochester, NY", size:"~38,000 agents", focus:"AI-augmented CX, process automation", tier:"A", contact:"VP of Technology Partnerships", avatar:"SG", ac:"av-blue", angle:"Sutherland has publicly committed to AI-driven CX transformation — Onvego DCC slots directly into their automation narrative." },
+  { id:3, name:"SYNNEX / Concentrix", hq:"Fremont, CA", size:"~300,000 agents", focus:"Omnichannel CX, AI, 70+ countries", tier:"B", contact:"Head of AI & Automation", avatar:"SC", ac:"av-purple", angle:"Concentrix's scale means even a pilot division is substantial — target their AI/innovation team, not the top." },
+  { id:4, name:"TaskUs", hq:"New Braunfels, TX", size:"~45,000 agents", focus:"Digital CX, AI ops, tech-native brands", tier:"A", contact:"VP of AI Operations", avatar:"TU", ac:"av-coral", angle:"TaskUs is AI-native and serves fast-growing tech brands — Onvego DCC's no-code build fits their operator model perfectly." },
+  { id:5, name:"Alorica", hq:"Irvine, CA", size:"~100,000 agents", focus:"CX outsourcing, bilingual, retail/telco/finance", tier:"B", contact:"Chief Innovation Officer", avatar:"AL", ac:"av-teal", angle:"Alorica has been investing in AI-assisted agent tools — DCC can be positioned as the autonomous layer above their human agents." },
+  { id:6, name:"SITEL Group (Sykes)", hq:"Miami, FL", size:"~160,000 agents", focus:"CX, digital transformation, EX automation", tier:"B", contact:"SVP of Digital Transformation", avatar:"SY", ac:"av-blue", angle:"Sykes/SITEL's transformation mandate creates an opening for Onvego as the contact center OS." },
+  { id:7, name:"Peak Support", hq:"Cambridge, MA", size:"~3,000 agents", focus:"Premium CX, SaaS/tech clients, quality-first", tier:"A", contact:"VP of Operations", avatar:"PS", ac:"av-purple", angle:"Peak's boutique model and high QA bar (95%+ avg) makes them ideal to pilot Onvego DCC with minimal friction — they'd want the analytics layer." },
+  { id:8, name:"Helpware", hq:"Lexington, KY", size:"~2,000 agents", focus:"People-as-a-Service, back-office, CX", tier:"A", contact:"Chief Technology Officer", avatar:"HW", ac:"av-coral", angle:"Helpware's tech-forward positioning and Google/Microsoft client roster makes them credible early adopters for Onvego DCC." },
+  { id:9, name:"Fusion CX", hq:"Phoenix, AZ", size:"~10,000 agents", focus:"Gen-AI powered CX, 40+ languages", tier:"A", contact:"Head of CX Technology", avatar:"FC", ac:"av-teal", angle:"Fusion CX is already branding around Gen-AI CX — Onvego DCC gives them a deployable product to back that claim." },
+  { id:10, name:"MCI (Mass Markets)", hq:"Omaha, NE", size:"~8,000 agents", focus:"CX, AI tools, QA tech", tier:"B", contact:"VP of Technology & Automation", avatar:"MC", ac:"av-blue", angle:"MCI's recent QA tech acquisitions show appetite for technology partners — pitch Onvego as the next layer." },
+  { id:11, name:"Arise Virtual Solutions", hq:"Miramar, FL", size:"~70,000 gig agents", focus:"At-home agents, CX, retail/insurance/cable", tier:"B", contact:"SVP of Partner Success", avatar:"AV", ac:"av-purple", angle:"Arise's distributed model creates demand for consistent AI-driven resolution — DCC can standardize quality across their gig workforce." },
+  { id:12, name:"Working Solutions", hq:"Dallas, TX", size:"~10,000 agents", focus:"Home-based CX, travel/retail/financial", tier:"B", contact:"Director of Innovation", avatar:"WS", ac:"av-coral", angle:"Working Solutions' at-home model and financial services vertical maps directly to Onvego's billing/collections automation use case." },
+  { id:13, name:"Qualfon", hq:"Washington, DC", size:"~15,000 agents", focus:"People-first CX, Latin America/Philippines/US", tier:"C", contact:"VP of Operations", avatar:"QF", ac:"av-teal", angle:"Qualfon's mission-driven culture means pitch DCC as freeing agents for higher-value interactions, not replacing them." },
+  { id:14, name:"Five Star Call Centers", hq:"Sioux Falls, SD", size:"~1,500 agents", focus:"US-based customer care, retail/utilities/finance", tier:"A", contact:"CEO / President", avatar:"FS", ac:"av-blue", angle:"Five Star is US-based, mid-size, and serves regulated industries — ideal Babcom analog. Direct CEO outreach appropriate at this scale." },
+  { id:15, name:"OneTouch Direct", hq:"Tampa, FL", size:"~3,000 agents", focus:"Sales-focused BPO, retail/telco/financial", tier:"A", contact:"VP of Business Development", avatar:"OT", ac:"av-purple", angle:"OneTouch's sales-first model maps to Onvego's lead qualification and upsell automation — frame DCC as a revenue tool, not a cost tool." },
+  { id:16, name:"Worldwide TechServices", hq:"Milford, MA", size:"~7,000 agents", focus:"IT helpdesk, tech support, CX", tier:"C", contact:"Director of Service Delivery", avatar:"WT", ac:"av-coral", angle:"WWTS's IT/helpdesk focus maps to Onvego's password reset and internal ops automation use case." },
+  { id:17, name:"Aloha Contact Center", hq:"Honolulu, HI", size:"~500 agents", focus:"Regional CX, healthcare/gov/utilities", tier:"C", contact:"Operations Director", avatar:"AH", ac:"av-teal", angle:"Smaller scale but operates in regulated verticals (healthcare/gov) where Onvego's SOC 2 + ISO compliance is a differentiator." },
+  { id:18, name:"Ameridial", hq:"Canton, OH", size:"~2,000 agents", focus:"Inbound/outbound CX, healthcare/non-profit", tier:"B", contact:"VP of Client Services", avatar:"AD", ac:"av-blue", angle:"Ameridial's healthcare vertical is a strong fit for Onvego's billing/eligibility automation use case." },
+  { id:19, name:"National Western Financial", hq:"Los Angeles, CA", size:"~1,200 agents", focus:"Financial services CX, insurance, collections", tier:"B", contact:"Head of Contact Center Operations", avatar:"NW", ac:"av-purple", angle:"Financial services CX is where Onvego DCC's billing/payment and collections automation delivers hardest ROI." },
+  { id:20, name:"Contact One Call Center", hq:"Tucson, AZ", size:"~800 agents", focus:"Live answering, inbound CX, small business clients", tier:"C", contact:"CEO / Founder", avatar:"CO", ac:"av-coral", angle:"Smaller operator — pitch is simple: Onvego DCC lets them scale volume without scaling headcount." }
+];
+
+const emails = [
+  { id:1, to:"SVP, CX Innovation — TTEC", subject:"A proven AI contact center OS — backed by ffVC", body:`Hi [Name],
+
+I'm reaching out from ff Venture Capital — we're early investors in Onvego, an agentic CX platform that has been running live in national-scale contact centers, handling over 10 million minutes annually at a 72.5% autonomous resolution rate.
+
+TTEC's dual model — consulting plus delivery — makes you an ideal partner to explore this with. Onvego's Digital Contact Center (DCC) is built for CX operators, not engineers. It lets your delivery teams build, monitor, and scale AI agents without writing a line of code — and it integrates directly into existing CRM, ERP, and telephony stacks.
+
+The results from current enterprise deployments: 45% reduction in operational cost, 37.5% SLA improvement, and genuine end-to-end resolution (not just deflection).
+
+Happy to share a brief deck and connect you with the Onvego team for a live demo. Would 20 minutes this week or next work?
+
+Best,
+[ffVC Sender Name]
+ff Venture Capital` },
+  { id:2, to:"VP of Technology Partnerships — Sutherland Global Services", subject:"The AI layer Sutherland's transformation story needs", body:`Hi [Name],
+
+I'm [Name] from ff Venture Capital. We've backed Onvego, an agentic contact center platform purpose-built to be the operating system underneath CX operations — not a chatbot layer on top.
+
+Given Sutherland's public commitment to AI-driven transformation, I wanted to put Onvego on your radar. Their DCC platform handles end-to-end resolution — not just Q&A — executing actual tasks across CRM, billing, and ERP. Current deployments are showing 45% opex reduction and a 72.5% autonomous resolution rate.
+
+The positioning that might resonate with your team: Onvego wants to be the quiet AI engine behind your delivery, not a branded front-end. Think of it as the Salesforce for CX managers.
+
+Could we set up a short call to explore the fit?
+
+Best,
+[ffVC Sender Name]
+ff Venture Capital` },
+  { id:3, to:"Head of AI & Automation — Concentrix", subject:"AI-native contact center OS — worth 20 minutes", body:`Hi [Name],
+
+Reaching out from ff Venture Capital. We're investors in Onvego, whose Digital Contact Center platform is already operating at national enterprise scale — 10M+ minutes annually, 72.5% autonomous resolution, certified SOC 2 Type II and ISO 27001.
+
+For an organization at Concentrix's scale, I'd suggest starting with a focused pilot conversation — Onvego is designed to slot in alongside existing infrastructure, not replace it. Their no-code build environment means your operations team can own it directly.
+
+The use cases that tend to land hardest for large BPOs: order and billing automation, IT helpdesk automation, and peak volume handling without linear headcount.
+
+Open to a brief call to see if there's a pilot opportunity?
+
+Best,
+[ffVC Sender Name]
+ff Venture Capital` },
+  { id:4, to:"VP of AI Operations — TaskUs", subject:"Onvego DCC — the backend your AI-native clients are asking for", body:`Hi [Name],
+
+I'm from ff Venture Capital, and I wanted to introduce you to one of our portfolio companies: Onvego, builders of the DCC — a no-code agentic CX operating system designed for operators, not engineers.
+
+TaskUs's tech-native client roster (and your own AI ops team) makes you a natural fit. Onvego's platform resolves issues end-to-end — across CRM, billing, and ERP — and is already deployed at enterprise scale with proven ROI metrics. The build experience is visual and language-based, so your CX managers can own it without engineering dependency.
+
+Given TaskUs's AI operations positioning, I think there's a compelling story here — either as an internal tool or as a capability you surface to clients.
+
+Worth a quick call?
+
+Best,
+[ffVC Sender Name]
+ff Venture Capital` },
+  { id:5, to:"Chief Innovation Officer — Alorica", subject:"From ffVC: an AI CX OS with live enterprise results", body:`Hi [Name],
+
+I'm writing from ff Venture Capital on behalf of a portfolio company I think is directly relevant to Alorica's AI investment roadmap: Onvego, whose Digital Contact Center platform is already reducing operational costs by 45% for enterprise clients.
+
+Unlike conversational AI overlays, Onvego DCC actually executes — password resets, billing adjustments, eligibility checks, order updates — with a 72.5% autonomous resolution rate. It's built to sit above Alorica's agent layer and handle the high-volume, repeatable interactions that don't need a human.
+
+I'd love to connect you with the Onvego team for a 20-minute conversation. Would you or a member of your innovation team be open to that?
+
+Best,
+[ffVC Sender Name]
+ff Venture Capital` },
+  { id:6, to:"SVP of Digital Transformation — SITEL/Sykes", subject:"The contact center OS built for operators, not IT", body:`Hi [Name],
+
+I'm reaching out from ff Venture Capital. We've backed Onvego, an agentic CX platform that aligns closely with SITEL's transformation mandate.
+
+What makes Onvego different: it's built for CX managers, not engineers. Your ops team can define logic, monitor live interactions, and intervene in real time — without touching a flow diagram or involving IT. Current enterprise deployments show 45% opex reduction and meaningful SLA improvements at scale.
+
+Onvego's SOC 2 Type II and ISO 27001 certifications also make it enterprise-deployable without a lengthy security review.
+
+Would love to set up a brief intro between you and the Onvego team. Does 20 minutes work this week?
+
+Best,
+[ffVC Sender Name]
+ff Venture Capital` },
+  { id:7, to:"VP of Operations — Peak Support", subject:"Onvego DCC — the analytics + automation layer for your QA model", body:`Hi [Name],
+
+I'm [Name] from ff Venture Capital. We invest in early-stage AI companies, and one of our portfolio companies — Onvego — caught my eye specifically because of Peak Support's reputation for high-QA, data-driven CX.
+
+Onvego's DCC captures every interaction as structured data and turns it into business intelligence — trend tracking, caller intent analysis, performance optimization. For a team that already runs 95% avg QA scores, this is the layer that lets you demonstrate outcomes at scale with clean data.
+
+It's also a natural fit for your SaaS clients who want to see their CX stack modernized without losing the human quality that makes Peak different.
+
+Open to a quick call to explore this?
+
+Best,
+[ffVC Sender Name]
+ff Venture Capital` },
+  { id:8, to:"Chief Technology Officer — Helpware", subject:"Portfolio intro: Onvego's agentic CX OS", body:`Hi [Name],
+
+I'm reaching out from ff Venture Capital. Given Helpware's technology-forward positioning and your client base (Google, Microsoft, and others), I wanted to introduce you to Onvego — one of our portfolio companies building what we think is the operating layer for the next generation of CX.
+
+Their Digital Contact Center platform is live at enterprise scale, handling 10M+ minutes annually, with a 72.5% autonomous resolution rate and 45% opex reduction. The integration story is clean — it works alongside existing telephony and CRM.
+
+As a CTO, what might interest you most: Onvego's architecture allows voice AI, task execution, and analytics to run from a single no-code interface. No stitching together vendors.
+
+Would you be open to a short call this month?
+
+Best,
+[ffVC Sender Name]
+ff Venture Capital` },
+  { id:9, to:"Head of CX Technology — Fusion CX", subject:"The AI backbone for your Gen-AI CX brand promise", body:`Hi [Name],
+
+I'm from ff Venture Capital, reaching out about Onvego — a portfolio company that I think aligns directly with Fusion CX's Gen-AI-powered positioning.
+
+Fusion's brand promise around AI-augmented CX is strong. Onvego's DCC is what makes it operationally real — an agentic platform that resolves issues end-to-end, across 40+ language environments, with live monitoring and structured data capture. Current deployments: 72.5% autonomous resolution, -45% opex, running at national enterprise scale.
+
+Onvego wants to be the quiet backend — Fusion gets full credit for the CX outcomes. It's the engine, not the brand.
+
+Worth a 20-minute call?
+
+Best,
+[ffVC Sender Name]
+ff Venture Capital` },
+  { id:10, to:"VP of Technology & Automation — MCI (Mass Markets)", subject:"ffVC portfolio intro: Onvego's agentic contact center platform", body:`Hi [Name],
+
+I'm reaching out from ff Venture Capital. I noticed MCI's recent acquisition activity in QA technology — and wanted to put Onvego on your radar as the logical next piece.
+
+Where QA tools measure what happened, Onvego DCC changes what happens — autonomous resolution, real-time intervention, and structured outcome data. It's already deployed at enterprise scale with 72.5% resolution rates and 45% cost reduction.
+
+Given MCI's appetite for building a differentiated tech stack, a quick conversation with the Onvego team seems worth the time.
+
+Would 20 minutes work this week?
+
+Best,
+[ffVC Sender Name]
+ff Venture Capital` },
+  { id:11, to:"SVP of Partner Success — Arise Virtual Solutions", subject:"Consistent AI-driven CX across 70,000 at-home agents", body:`Hi [Name],
+
+From ff Venture Capital — wanted to introduce Onvego, one of our portfolio companies building the agentic operating layer for contact centers.
+
+For Arise specifically, the value proposition is distinctive: your distributed model creates inherent variability in agent quality. Onvego DCC handles the high-volume, repeatable interactions autonomously — so your human agents are reserved for the calls that genuinely need them. That's a quality consistency and cost story that's hard to replicate otherwise.
+
+Proven at scale: 10M+ minutes annually, 72.5% autonomous resolution, 45% opex reduction.
+
+Worth a quick conversation?
+
+Best,
+[ffVC Sender Name]
+ff Venture Capital` },
+  { id:12, to:"Director of Innovation — Working Solutions", subject:"Onvego DCC: billing + financial CX automation at scale", body:`Hi [Name],
+
+I'm from ff Venture Capital, and I wanted to introduce you to Onvego — a portfolio company whose Digital Contact Center platform has a particularly strong use case in financial services CX.
+
+Payment collection, billing disputes, invoicing, balance follow-ups — Onvego DCC executes these end-to-end, including direct CRM and billing system actions, not just conversational deflection. For Working Solutions' financial and insurance client base, that's a compelling operational story.
+
+Happy to arrange a brief intro call between your team and Onvego.
+
+Best,
+[ffVC Sender Name]
+ff Venture Capital` },
+  { id:13, to:"VP of Operations — Qualfon", subject:"AI that frees your agents — not replaces them", body:`Hi [Name],
+
+I'm reaching out from ff Venture Capital on behalf of Onvego, whose approach to AI in contact centers I think resonates with Qualfon's people-first culture.
+
+Onvego DCC is explicitly designed to handle the high-volume, repetitive interactions that drain agent energy — so your teams can focus on the calls that matter. The result isn't headcount reduction; it's better agent experience and stronger customer outcomes. Deployments show 37.5% SLA improvement alongside the cost savings.
+
+Would love to connect you with the Onvego team for a candid conversation about fit.
+
+Best,
+[ffVC Sender Name]
+ff Venture Capital` },
+  { id:14, to:"CEO / President — Five Star Call Centers", subject:"The AI OS that works the way your ops team already thinks", body:`Hi [Name],
+
+I'm [Name] from ff Venture Capital. We back early-stage AI companies, and I wanted to personally introduce you to Onvego — because Five Star's profile (US-based, quality-focused, regulated industry verticals) is exactly what Onvego has proven at scale in Israel through their Babcom partnership.
+
+Onvego's DCC lets your team — not IT — define service logic, monitor interactions live, and continuously improve performance. It handles the repeatable interactions end-to-end: billing, order status, eligibility, account changes. Your agents handle the exceptions.
+
+Outcomes from enterprise deployments: -45% operational cost, 72.5% resolution rate, +37.5% SLA improvement. SOC 2 + ISO certified.
+
+I'd love to connect you directly with the Onvego founding team. 20 minutes?
+
+Best,
+[ffVC Sender Name]
+ff Venture Capital` },
+  { id:15, to:"VP of Business Development — OneTouch Direct", subject:"Onvego DCC: AI that drives revenue, not just efficiency", body:`Hi [Name],
+
+From ff Venture Capital — wanted to flag an Onvego portfolio company I think maps well to OneTouch's sales-focused model.
+
+Most AI in contact centers is pitched as a cost story. Onvego's DCC also delivers a revenue story: lead qualification, upsell flagging, and seamless warm handoffs to live agents — all autonomous, all measurable. For a BPO whose clients are paying for sales outcomes, that's a differentiated offer.
+
+The underlying numbers: 72.5% autonomous resolution, -45% opex, 10M+ minutes in production.
+
+Worth a call this week to explore how this fits into OneTouch's roadmap?
+
+Best,
+[ffVC Sender Name]
+ff Venture Capital` },
+  { id:16, to:"Director of Service Delivery — Worldwide TechServices", subject:"IT helpdesk automation — Onvego DCC in production", body:`Hi [Name],
+
+I'm from ff Venture Capital. We've invested in Onvego, whose DCC platform has a particularly clean use case for IT helpdesk and internal ops — password resets, access management, device provisioning, candidate intake.
+
+For WWTS, the pitch is straightforward: Onvego handles the high-volume tier-0/1 requests autonomously, executes the actual system actions, and escalates cleanly to your agents for anything that needs human judgment. No scripted decision trees — it resolves.
+
+Happy to connect you with the Onvego team if this is worth 20 minutes.
+
+Best,
+[ffVC Sender Name]
+ff Venture Capital` },
+  { id:17, to:"Operations Director — Aloha Contact Center", subject:"Enterprise-grade AI CX for regulated verticals", body:`Hi [Name],
+
+Reaching out from ff Venture Capital on behalf of Onvego, an agentic CX platform with enterprise-grade security credentials — SOC 2 Type II, ISO 27001, ISO 27799 — and a track record in healthcare and government service environments.
+
+For Aloha's regulated client base, that compliance posture matters. Onvego DCC handles constituent and patient inquiries end-to-end, with structured data capture and full audit trails. The team can be deployed quickly and owned by your operations managers without engineering involvement.
+
+Worth a brief conversation to explore fit?
+
+Best,
+[ffVC Sender Name]
+ff Venture Capital` },
+  { id:18, to:"VP of Client Services — Ameridial", subject:"Healthcare billing + CX automation — Onvego DCC", body:`Hi [Name],
+
+From ff Venture Capital — wanted to introduce Onvego, a portfolio company whose Digital Contact Center platform has a strong fit with Ameridial's healthcare and non-profit verticals.
+
+Specifically: eligibility checks, billing inquiries, appointment reminders, and payment collection — all executed end-to-end by Onvego's AI agents, integrated directly into your CRM and billing systems. The platform is HIPAA-compatible and SOC 2 / ISO certified.
+
+Deployments at enterprise scale show 45% opex reduction and 72.5% autonomous resolution. Happy to facilitate an intro with the Onvego team.
+
+Best,
+[ffVC Sender Name]
+ff Venture Capital` },
+  { id:19, to:"Head of Contact Center Operations — National Western Financial", subject:"45% opex reduction in financial services CX — live results", body:`Hi [Name],
+
+I'm from ff Venture Capital. I wanted to reach out because Onvego — one of our portfolio companies — has delivered its strongest ROI in exactly the vertical you operate in: financial services CX.
+
+Payment collection, invoice follow-ups, billing dispute resolution, and account inquiries — Onvego DCC handles all of these autonomously, with direct integration into core systems. No hand-wavey chatbot demo; this is running at national enterprise scale with -45% operational cost and SOC 2 / ISO 27001 compliance.
+
+Would you be open to a 20-minute call to see the platform in action?
+
+Best,
+[ffVC Sender Name]
+ff Venture Capital` },
+  { id:20, to:"CEO / Founder — Contact One Call Center", subject:"Scale volume without scaling headcount — Onvego DCC", body:`Hi [Name],
+
+I'm from ff Venture Capital, and I wanted to personally introduce you to Onvego — because their value proposition is unusually direct for a company at Contact One's stage.
+
+Onvego DCC lets you handle significantly more inbound volume without adding agents. It answers, routes, resolves, and escalates — autonomously — with a 72.5% resolution rate in live production. For a founder managing a growing operation, the pitch is simple: your agents handle what needs a human; Onvego handles everything else.
+
+Setup is fast, no-code, and doesn't require IT. I'd love to connect you with the team for a quick demo.
+
+Best,
+[ffVC Sender Name]
+ff Venture Capital` }
+];
+
+let currentEmail = 0;
+
+function tierClass(t) {
+  if(t==="A") return "tier-badge tier-a";
+  if(t==="B") return "tier-badge tier-b";
+  return "tier-badge tier-c";
+}
+
+function buildTable() {
+  const tbody = document.getElementById("bpo-tbody");
+  tbody.innerHTML = bpos.map(b => `
+    <tr>
+      <td style="color:#666;font-weight:500;">${b.id}</td>
+      <td style="font-weight:500;">${b.name}</td>
+      <td style="color:#666;">${b.hq}</td>
+      <td style="color:#666;">${b.size}</td>
+      <td style="color:#666;">${b.focus}</td>
+      <td><span class="${tierClass(b.tier)}">${b.tier}</span></td>
+      <td style="color:#666;">${b.contact}</td>
+      <td><button class="select-btn" onclick="viewEmail(${b.id-1})">View email</button></td>
+    </tr>
+  `).join("");
+}
+
+function buildEmail(idx) {
+  const b = bpos[idx];
+  const e = emails[idx];
+  document.getElementById("email-counter").textContent = `${idx+1} / 20`;
+  document.getElementById("email-container").innerHTML = `
+    <div class="email-card">
+      <div class="email-header">
+        <div class="avatar ${b.ac}">${b.avatar}</div>
+        <div>
+          <p class="contact-name">${b.name}</p>
+          <p class="contact-sub">${b.contact}</p>
+        </div>
+      </div>
+      <div class="email-meta">
+        <span class="meta-label">To</span><span class="meta-val">${e.to}</span>
+        <span class="meta-label">Subject</span><span class="meta-val">${e.subject}</span>
+        <span class="meta-label">Why them</span><span class="meta-val">${b.angle}</span>
+      </div>
+      <div class="email-body">${e.body}</div>
+      <button class="copy-btn" onclick="copyEmail(${idx})" id="copy-btn-${idx}">
+        <i class="ti ti-copy"></i> Copy email
+      </button>
+    </div>
+  `;
+}
+
+function viewEmail(idx) {
+  currentEmail = idx;
+  switchTab("emails");
+  buildEmail(idx);
+}
+
+function prevEmail() {
+  currentEmail = (currentEmail - 1 + 20) % 20;
+  buildEmail(currentEmail);
+}
+
+function nextEmail() {
+  currentEmail = (currentEmail + 1) % 20;
+  buildEmail(currentEmail);
+}
+
+function copyEmail(idx) {
+  const e = emails[idx];
+  const text = `Subject: ${e.subject}\n\n${e.body}`;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById(`copy-btn-${idx}`);
+    if(btn){ btn.innerHTML = '<i class="ti ti-check"></i> Copied'; setTimeout(()=>{ btn.innerHTML = '<i class="ti ti-copy"></i> Copy email'; }, 2000); }
+  }).catch(() => {});
+}
+
+function switchTab(tab) {
+  document.querySelectorAll(".tab").forEach((t,i)=>{ t.classList.toggle("active", (i===0&&tab==="list")||(i===1&&tab==="emails")); });
+  document.getElementById("list-panel").classList.toggle("active", tab==="list");
+  document.getElementById("emails-panel").classList.toggle("active", tab==="emails");
+  if(tab==="emails") buildEmail(currentEmail);
+}
+
+buildTable();
+</script>
+</body>
+</html>
