@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Onvego DCC — US BPO Sales Campaign</title>
+<title>Onvego DCC, US BPO Sales Campaign</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -53,28 +53,32 @@
   .table-panel { display: none; }
   .table-panel.active { display: block; }
   .insight-box { background: #f0efed; border-left: 3px solid #1D9E75; border-radius: 0 8px 8px 0; padding: 10px 14px; margin-bottom: 1.5rem; font-size: 13px; color: #555; line-height: 1.6; }
+  .verified-tag { display: inline-block; background: #E1F5EE; color: #085041; font-size: 10px; font-weight: 500; padding: 1px 6px; border-radius: 8px; margin-left: 4px; }
+  .placeholder-tag { display: inline-block; background: #FAECE7; color: #712B13; font-size: 10px; font-weight: 500; padding: 1px 6px; border-radius: 8px; margin-left: 4px; }
   .ffvc-tag { display: inline-block; background: #E1F5EE; color: #085041; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 12px; margin-bottom: 12px; }
 </style>
 </head>
 <body>
 <div class="page">
-  <div style="margin-bottom: 8px;"><span class="ffvc-tag">ff Venture Capital — Portfolio Outreach</span></div>
+  <div style="margin-bottom: 8px;"><span class="ffvc-tag">ff Venture Capital, Portfolio Outreach</span></div>
   <div class="camp-header">
-    <h1>Onvego DCC — US BPO sales campaign</h1>
+    <h1>Onvego DCC, US BPO sales campaign</h1>
     <p>20 target BPOs · Modeled on Babcom Centers profile · ffVC warm intro angle</p>
   </div>
 
   <div class="stats">
     <div class="stat"><div class="stat-label">Target BPOs</div><div class="stat-val">20</div></div>
     <div class="stat"><div class="stat-label">Tier A (best fit)</div><div class="stat-val">7</div></div>
-    <div class="stat"><div class="stat-label">Unique contacts</div><div class="stat-val">20</div></div>
+    <div class="stat"><div class="stat-label">Verified contacts</div><div class="stat-val">8</div></div>
     <div class="stat"><div class="stat-label">Custom emails</div><div class="stat-val">20</div></div>
   </div>
 
   <div class="insight-box">
-    <strong>Babcom profile:</strong> ~$277M revenue, enterprise-grade outsourced CX centers (Matrix Group subsidiary), high-volume inbound/outbound, multilingual, services banking/telco/insurance. US analogs: mid-to-large CX-focused BPOs with 500–10,000 agents, multi-vertical, open to AI/tech vendor partnerships.
+    <strong>Babcom profile:</strong> ~$277M revenue, enterprise-grade outsourced CX centers (Matrix Group subsidiary), high-volume inbound/outbound, multilingual, services banking/telco/insurance. US analogs: mid-to-large CX-focused BPOs with 500 to 10,000 agents, multi-vertical, open to AI/tech vendor partnerships.
     <br><br>
-    <strong>Revised per Alon's feedback:</strong> emails now open with the recipient's likely operational pain point (inferred from role + BPO vertical) rather than Onvego's stats up front, and "no-code" language has been softened to reflect that complex use cases require upfront integration work, with no-code control over playbooks and logic once that integration is live. Note: pain points here are reasoned from role and vertical, not pulled from actual LinkedIn activity — worth layering in real LinkedIn signal per contact once specific names are identified.
+    <strong>Revised per Alon's feedback:</strong> emails now open with the recipient's likely operational pain point (inferred from role and BPO vertical) rather than Onvego's stats up front, and "no-code" language has been softened to reflect that complex use cases require upfront integration work, with no-code control over playbooks and logic once that integration is live. Pain points are reasoned from role and vertical, not pulled from actual LinkedIn activity. Worth layering in real LinkedIn signal per contact going forward.
+    <br><br>
+    <strong>Contact names and emails:</strong> 8 of 20 contacts are real names found through public research (marked "verified" in the company list and email view), each matched to the closest publicly listed title for that company. The remaining 12 use bracketed placeholders like [name.lastname]@company.com (marked "placeholder") since no public source confirmed a specific person in that role. Swap in real names before sending, ideally sourced from LinkedIn Sales Navigator or a similar tool for those still marked placeholder.
   </div>
 
 
@@ -93,7 +97,7 @@
           <th>Size</th>
           <th>CX focus</th>
           <th>Fit tier</th>
-          <th>Target contact title</th>
+          <th>Contact and email</th>
           <th></th>
         </tr>
       </thead>
@@ -113,47 +117,47 @@
 
 <script>
 const bpos = [
-  { id:1, name:"TTEC", hq:"Greenwood Village, CO", size:"~50,000 agents", focus:"CX strategy + BPO delivery, omnichannel", tier:"A", contact:"SVP, CX Innovation", avatar:"TT", ac:"av-teal", angle:"TTEC's dual model (consulting + BPO) means innovation pressure comes from clients directly \u2014 they need a credible AI story to bring into renewal conversations." },
-  { id:2, name:"Sutherland Global Services", hq:"Rochester, NY", size:"~38,000 agents", focus:"AI-augmented CX, process automation", tier:"A", contact:"VP of Technology Partnerships", avatar:"SG", ac:"av-blue", angle:"Sutherland has staked a public position on AI-driven CX \u2014 the gap between that messaging and deployed reality is likely a live internal pressure point." },
-  { id:3, name:"SYNNEX / Concentrix", hq:"Fremont, CA", size:"~300,000 agents", focus:"Omnichannel CX, AI, 70+ countries", tier:"B", contact:"Head of AI & Automation", avatar:"SC", ac:"av-purple", angle:"At Concentrix's scale, the AI/automation team is likely evaluated on proving ROI on a contained pilot before any broader rollout \u2014 not on big-bang transformation." },
-  { id:4, name:"TaskUs", hq:"New Braunfels, TX", size:"~45,000 agents", focus:"Digital CX, AI ops, tech-native brands", tier:"A", contact:"VP of AI Operations", avatar:"TU", ac:"av-coral", angle:"TaskUs's clients are tech-native and expect their BPO partner to already be running on AI infrastructure \u2014 that's the pressure this contact likely feels daily." },
-  { id:5, name:"Alorica", hq:"Irvine, CA", size:"~100,000 agents", focus:"CX outsourcing, bilingual, retail/telco/finance", tier:"B", contact:"Chief Innovation Officer", avatar:"AL", ac:"av-teal", angle:"Alorica's scale makes agent quality consistency hard \u2014 a CIO here is likely focused on reducing variance across a huge distributed workforce, not just cutting cost." },
-  { id:6, name:"SITEL Group (Sykes)", hq:"Miami, FL", size:"~160,000 agents", focus:"CX, digital transformation, EX automation", tier:"B", contact:"SVP of Digital Transformation", avatar:"SY", ac:"av-blue", angle:"A transformation mandate at this scale usually means this person is under pressure to show a concrete deployed win, not another roadmap slide." },
-  { id:7, name:"Peak Support", hq:"Cambridge, MA", size:"~3,000 agents", focus:"Premium CX, SaaS/tech clients, quality-first", tier:"A", contact:"VP of Operations", avatar:"PS", ac:"av-purple", angle:"Peak's clients are SaaS companies who expect data-driven proof of quality \u2014 this VP likely needs better visibility into interaction-level performance, not just QA scores." },
-  { id:8, name:"Helpware", hq:"Lexington, KY", size:"~2,000 agents", focus:"People-as-a-Service, back-office, CX", tier:"A", contact:"Chief Technology Officer", avatar:"HW", ac:"av-coral", angle:"Helpware's enterprise clients (Google, Microsoft) likely expect a modern AI stack as a condition of the relationship \u2014 this CTO is probably evaluating vendors right now, not just exploring." },
-  { id:9, name:"Fusion CX", hq:"Phoenix, AZ", size:"~10,000 agents", focus:"Gen-AI powered CX, 40+ languages", tier:"A", contact:"Head of CX Technology", avatar:"FC", ac:"av-teal", angle:"Fusion has marketed itself as Gen-AI powered \u2014 this contact likely owns the gap between that branding and what's actually live in production." },
-  { id:10, name:"MCI (Mass Markets)", hq:"Omaha, NE", size:"~8,000 agents", focus:"CX, AI tools, QA tech", tier:"B", contact:"VP of Technology & Automation", avatar:"MC", ac:"av-blue", angle:"MCI's recent QA tech investments suggest this VP is actively building a tech stack right now and benchmarking vendors \u2014 timing may be good." },
-  { id:11, name:"Arise Virtual Solutions", hq:"Miramar, FL", size:"~70,000 gig agents", focus:"At-home agents, CX, retail/insurance/cable", tier:"B", contact:"SVP of Partner Success", avatar:"AV", ac:"av-purple", angle:"Arise's gig-based model makes consistent quality across a distributed, non-employee workforce a constant operational headache for this role." },
-  { id:12, name:"Working Solutions", hq:"Dallas, TX", size:"~10,000 agents", focus:"Home-based CX, travel/retail/financial", tier:"B", contact:"Director of Innovation", avatar:"WS", ac:"av-coral", angle:"Working Solutions serves financial clients where billing and collections volume is high and repetitive \u2014 this director likely owns the mandate to automate that without losing compliance control." },
-  { id:13, name:"Qualfon", hq:"Washington, DC", size:"~15,000 agents", focus:"People-first CX, Latin America/Philippines/US", tier:"C", contact:"VP of Operations", avatar:"QF", ac:"av-teal", angle:"Qualfon's people-first culture means this VP likely needs to defend agent experience and retention even while under pressure to cut cost \u2014 a tension worth naming directly." },
-  { id:14, name:"Five Star Call Centers", hq:"Sioux Falls, SD", size:"~1,500 agents", focus:"US-based customer care, retail/utilities/finance", tier:"A", contact:"CEO / President", avatar:"FS", ac:"av-blue", angle:"Five Star is US-based, mid-size, and serves regulated industries \u2014 ideal Babcom analog. A CEO at this scale is likely weighing AI vendors personally, not delegating it." },
-  { id:15, name:"OneTouch Direct", hq:"Tampa, FL", size:"~3,000 agents", focus:"Sales-focused BPO, retail/telco/financial", tier:"A", contact:"VP of Business Development", avatar:"OT", ac:"av-purple", angle:"OneTouch is paid on sales outcomes, not just handled volume \u2014 this VP's real problem is leads going cold during after-hours or peak-volume gaps." },
-  { id:16, name:"Worldwide TechServices", hq:"Milford, MA", size:"~7,000 agents", focus:"IT helpdesk, tech support, CX", tier:"C", contact:"Director of Service Delivery", avatar:"WT", ac:"av-coral", angle:"IT helpdesk volume is dominated by a small set of repetitive tier-0/1 tickets \u2014 this director likely feels that drag on team capacity daily." },
-  { id:17, name:"Aloha Contact Center", hq:"Honolulu, HI", size:"~500 agents", focus:"Regional CX, healthcare/gov/utilities", tier:"C", contact:"Operations Director", avatar:"AH", ac:"av-teal", angle:"Healthcare and government clients impose strict compliance requirements \u2014 this director's constraint is likely security and audit trail, not just efficiency." },
-  { id:18, name:"Ameridial", hq:"Canton, OH", size:"~2,000 agents", focus:"Inbound/outbound CX, healthcare/non-profit", tier:"B", contact:"VP of Client Services", avatar:"AD", ac:"av-blue", angle:"Healthcare eligibility and billing calls are high-volume and rules-based \u2014 this VP's likely pain point is agent burnout from repetitive, low-judgment calls." },
-  { id:19, name:"National Western Financial", hq:"Los Angeles, CA", size:"~1,200 agents", focus:"Financial services CX, insurance, collections", tier:"B", contact:"Head of Contact Center Operations", avatar:"NW", ac:"av-purple", angle:"Collections and billing dispute calls are repetitive but compliance-sensitive \u2014 this role likely needs consistency and auditability as much as speed." },
-  { id:20, name:"Contact One Call Center", hq:"Tucson, AZ", size:"~800 agents", focus:"Live answering, inbound CX, small business clients", tier:"C", contact:"CEO / Founder", avatar:"CO", ac:"av-coral", angle:"A founder at this scale is likely personally constrained by hiring and training costs every time call volume spikes." }
+  { id:1, name:"TTEC", hq:"Greenwood Village, CO", size:"~50,000 agents", focus:"CX strategy + BPO delivery, omnichannel", tier:"A", contact:"Alfredo Rizzo, Chief Technology Officer", email:"alfredo.rizzo@ttec.com", verified:true, avatar:"AR", ac:"av-teal", angle:"TTEC's dual model (consulting + BPO) means innovation pressure comes from clients directly. They need a credible AI story to bring into renewal conversations." },
+  { id:2, name:"Sutherland Global Services", hq:"Rochester, NY", size:"~38,000 agents", focus:"AI-augmented CX, process automation", tier:"A", contact:"Doug Gilbert, CIO and Chief Digital Officer", email:"doug.gilbert@sutherlandglobal.com", verified:true, avatar:"DG", ac:"av-blue", angle:"Sutherland has staked a public position on AI-driven CX. The gap between that messaging and deployed reality is likely a live internal pressure point." },
+  { id:3, name:"SYNNEX / Concentrix", hq:"Fremont, CA", size:"~300,000 agents", focus:"Omnichannel CX, AI, 70+ countries", tier:"B", contact:"Guy Bourgault, Head of Agentics", email:"guy.bourgault@concentrix.com", verified:true, avatar:"GB", ac:"av-purple", angle:"At Concentrix's scale, the AI/automation team is likely evaluated on proving ROI on a contained pilot before any broader rollout, not on big-bang transformation." },
+  { id:4, name:"TaskUs", hq:"New Braunfels, TX", size:"~45,000 agents", focus:"Digital CX, AI ops, tech-native brands", tier:"A", contact:"Chandra Venkataramani, Chief Information Officer", email:"chandra.venkataramani@taskus.com", verified:true, avatar:"CV", ac:"av-coral", angle:"TaskUs's clients are tech-native and expect their BPO partner to already be running on AI infrastructure. That's the pressure this contact likely feels daily." },
+  { id:5, name:"Alorica", hq:"Irvine, CA", size:"~100,000 agents", focus:"CX outsourcing, bilingual, retail/telco/finance", tier:"B", contact:"Chief Innovation Officer", email:"[name.lastname]@alorica.com", verified:false, avatar:"AL", ac:"av-teal", angle:"Alorica's scale makes agent quality consistency hard. A CIO here is likely focused on reducing variance across a huge distributed workforce, not just cutting cost." },
+  { id:6, name:"SITEL Group (Sykes)", hq:"Miami, FL", size:"~160,000 agents", focus:"CX, digital transformation, EX automation", tier:"B", contact:"SVP of Digital Transformation", email:"[name.lastname]@sitel.com", verified:false, avatar:"SY", ac:"av-blue", angle:"A transformation mandate at this scale usually means this person is under pressure to show a concrete deployed win, not another roadmap slide." },
+  { id:7, name:"Peak Support", hq:"Cambridge, MA", size:"~3,000 agents", focus:"Premium CX, SaaS/tech clients, quality-first", tier:"A", contact:"Bianca Lazaro, VP of Operations", email:"bianca.lazaro@peaksupport.io", verified:true, avatar:"BL", ac:"av-purple", angle:"Peak's clients are SaaS companies who expect data-driven proof of quality. This VP likely needs better visibility into interaction-level performance, not just QA scores." },
+  { id:8, name:"Helpware", hq:"Lexington, KY", size:"~2,000 agents", focus:"People-as-a-Service, back-office, CX", tier:"A", contact:"Arlin Ohmes, Chief Information Officer", email:"arlin.ohmes@helpware.com", verified:true, avatar:"AO", ac:"av-coral", angle:"Helpware's enterprise clients (Google, Microsoft) likely expect a modern AI stack as a condition of the relationship. This contact is probably evaluating vendors right now, not just exploring." },
+  { id:9, name:"Fusion CX", hq:"Phoenix, AZ", size:"~10,000 agents", focus:"Gen-AI powered CX, 40+ languages", tier:"A", contact:"Ritesh Chakraborty, Chief Service Officer", email:"ritesh.chakraborty@fusioncx.com", verified:true, avatar:"RC", ac:"av-teal", angle:"Fusion has marketed itself as Gen-AI powered. This contact likely owns the gap between that branding and what's actually live in production." },
+  { id:10, name:"MCI (Mass Markets)", hq:"Omaha, NE", size:"~8,000 agents", focus:"CX, AI tools, QA tech", tier:"B", contact:"VP of Technology & Automation", email:"[name.lastname]@mcicareers.com", verified:false, avatar:"MC", ac:"av-blue", angle:"MCI's recent QA tech investments suggest this VP is actively building a tech stack right now and benchmarking vendors. Timing may be good." },
+  { id:11, name:"Arise Virtual Solutions", hq:"Miramar, FL", size:"~70,000 gig agents", focus:"At-home agents, CX, retail/insurance/cable", tier:"B", contact:"SVP of Partner Success", email:"[name.lastname]@arise.com", verified:false, avatar:"AV", ac:"av-purple", angle:"Arise's gig-based model makes consistent quality across a distributed, non-employee workforce a constant operational headache for this role." },
+  { id:12, name:"Working Solutions", hq:"Dallas, TX", size:"~10,000 agents", focus:"Home-based CX, travel/retail/financial", tier:"B", contact:"Director of Innovation", email:"[name.lastname]@workingsolutions.com", verified:false, avatar:"WS", ac:"av-coral", angle:"Working Solutions serves financial clients where billing and collections volume is high and repetitive. This director likely owns the mandate to automate that without losing compliance control." },
+  { id:13, name:"Qualfon", hq:"Washington, DC", size:"~15,000 agents", focus:"People-first CX, Latin America/Philippines/US", tier:"C", contact:"VP of Operations", email:"[name.lastname]@qualfon.com", verified:false, avatar:"QF", ac:"av-teal", angle:"Qualfon's people-first culture means this VP likely needs to defend agent experience and retention even while under pressure to cut cost. A tension worth naming directly." },
+  { id:14, name:"Five Star Call Centers", hq:"Sioux Falls, SD", size:"~1,500 agents", focus:"US-based customer care, retail/utilities/finance", tier:"A", contact:"Joel Sylvester, Chief Client Officer", email:"joel.sylvester@fivestarcallcenters.com", verified:true, avatar:"JS", ac:"av-blue", angle:"Five Star is US-based, mid-size, and serves regulated industries, an ideal Babcom analog. This contact is likely weighing AI vendors personally, not delegating it." },
+  { id:15, name:"OneTouch Direct", hq:"Tampa, FL", size:"~3,000 agents", focus:"Sales-focused BPO, retail/telco/financial", tier:"A", contact:"VP of Business Development", email:"[name.lastname]@onetouchdirect.com", verified:false, avatar:"OT", ac:"av-purple", angle:"OneTouch is paid on sales outcomes, not just handled volume. This VP's real problem is leads going cold during after-hours or peak-volume gaps." },
+  { id:16, name:"Worldwide TechServices", hq:"Milford, MA", size:"~7,000 agents", focus:"IT helpdesk, tech support, CX", tier:"C", contact:"Director of Service Delivery", email:"[name.lastname]@worldwidetechservices.com", verified:false, avatar:"WT", ac:"av-coral", angle:"IT helpdesk volume is dominated by a small set of repetitive tier-0/1 tickets. This director likely feels that drag on team capacity daily." },
+  { id:17, name:"Aloha Contact Center", hq:"Honolulu, HI", size:"~500 agents", focus:"Regional CX, healthcare/gov/utilities", tier:"C", contact:"Operations Director", email:"[name.lastname]@alohacontact.com", verified:false, avatar:"AH", ac:"av-teal", angle:"Healthcare and government clients impose strict compliance requirements. This director's constraint is likely security and audit trail, not just efficiency." },
+  { id:18, name:"Ameridial", hq:"Canton, OH", size:"~2,000 agents", focus:"Inbound/outbound CX, healthcare/non-profit", tier:"B", contact:"VP of Client Services", email:"[name.lastname]@ameridial.com", verified:false, avatar:"AD", ac:"av-blue", angle:"Healthcare eligibility and billing calls are high-volume and rules-based. This VP's likely pain point is agent burnout from repetitive, low-judgment calls." },
+  { id:19, name:"National Western Financial", hq:"Los Angeles, CA", size:"~1,200 agents", focus:"Financial services CX, insurance, collections", tier:"B", contact:"Head of Contact Center Operations", email:"[name.lastname]@nwfinancial.com", verified:false, avatar:"NW", ac:"av-purple", angle:"Collections and billing dispute calls are repetitive but compliance-sensitive. This role likely needs consistency and auditability as much as speed." },
+  { id:20, name:"Contact One Call Center", hq:"Tucson, AZ", size:"~800 agents", focus:"Live answering, inbound CX, small business clients", tier:"C", contact:"CEO / Founder", email:"[name.lastname]@contactonecallcenter.com", verified:false, avatar:"CO", ac:"av-coral", angle:"A founder at this scale is likely personally constrained by hiring and training costs every time call volume spikes." }
 ];
 
 const emails = [
-  { id:1, to:"SVP, CX Innovation — TTEC", subject:"What do you tell clients when they ask about AI?", body:`Hi [Name],
+  { id:1, to:"SVP, CX Innovation, TTEC", subject:"What do you tell clients when they ask about AI?", body:`Hi [Name],
 
-At TTEC's scale, I'd guess one of the harder conversations right now is what you tell enterprise clients when they ask what TTEC is actually doing on AI \u2014 beyond a roadmap slide.
+At TTEC's scale, I'd guess one of the harder conversations right now is what you tell enterprise clients when they ask what TTEC is actually doing on AI, beyond a roadmap slide.
 
 I'm reaching out from ff Venture Capital. We've backed Onvego, an agentic CX platform already running in national-scale contact centers, handling over 10 million minutes annually at a 72.5% autonomous resolution rate.
 
-To be upfront: the use cases that create the most value involve integrating with a client's existing systems, so there's real implementation work involved. Once that integration layer is in place, though, your CX managers can independently adjust playbooks and business logic without needing engineering support for every change \u2014 which is where most of the ongoing time savings come from.
+To be upfront: the use cases that create the most value involve integrating with a client's existing systems, so there's real implementation work involved. Once that integration layer is in place, though, your CX managers can independently adjust playbooks and business logic without needing engineering support for every change. That's where most of the ongoing time savings come from.
 
 Happy to share a brief deck and connect you with the Onvego team for a working demo. Would 20 minutes this week or next work?
 
 Best,
 [ffVC Sender Name]
 ff Venture Capital` },
-  { id:2, to:"VP of Technology Partnerships — Sutherland Global Services", subject:"Closing the gap between AI messaging and what's live", body:`Hi [Name],
+  { id:2, to:"VP of Technology Partnerships, Sutherland Global Services", subject:"Closing the gap between AI messaging and what's live", body:`Hi [Name],
 
-Sutherland has been vocal about AI-driven CX transformation \u2014 which probably means you're the one fielding questions about what's actually deployed versus what's still aspirational.
+Sutherland has been vocal about AI-driven CX transformation, which probably means you're the one fielding questions about what's actually deployed versus what's still aspirational.
 
-I'm [Name] from ff Venture Capital. We've backed Onvego, an agentic contact center platform built to handle end-to-end resolution, not just conversational deflection \u2014 password resets, billing adjustments, order updates, executed directly in CRM and billing systems. Current deployments show 45% opex reduction and a 72.5% autonomous resolution rate.
+I'm [Name] from ff Venture Capital. We've backed Onvego, an agentic contact center platform built to handle end-to-end resolution, not just conversational deflection: password resets, billing adjustments, order updates, executed directly in CRM and billing systems. Current deployments show 45% opex reduction and a 72.5% autonomous resolution rate.
 
 Worth flagging: the higher-value use cases require integration work with your existing systems upfront. Once that's built, your CX teams can manage workflows and logic changes on their own without needing dev cycles for every tweak.
 
@@ -162,11 +166,11 @@ Could we set up a short call to see if there's a real pilot here?
 Best,
 [ffVC Sender Name]
 ff Venture Capital` },
-  { id:3, to:"Head of AI & Automation — Concentrix", subject:"A contained pilot, not a platform overhaul", body:`Hi [Name],
+  { id:3, to:"Head of AI & Automation, Concentrix", subject:"A contained pilot, not a platform overhaul", body:`Hi [Name],
 
 At Concentrix's scale, I'd imagine your team is measured less on big swings and more on proving ROI in a contained pilot before anything gets greenlit broadly.
 
-I'm reaching out from ff Venture Capital. We're investors in Onvego, whose Digital Contact Center platform is operating at national enterprise scale today \u2014 10M+ minutes annually, 72.5% autonomous resolution, SOC 2 Type II and ISO 27001 certified.
+I'm reaching out from ff Venture Capital. We're investors in Onvego, whose Digital Contact Center platform is operating at national enterprise scale today: 10M+ minutes annually, 72.5% autonomous resolution, SOC 2 Type II and ISO 27001 certified.
 
 Onvego is designed to sit alongside existing infrastructure rather than replace it, which makes it a reasonable fit for a bounded pilot. The integration work happens upfront with your systems; from there, your operations team owns playbook and logic changes directly.
 
@@ -177,13 +181,13 @@ Open to a brief call to scope a pilot?
 Best,
 [ffVC Sender Name]
 ff Venture Capital` },
-  { id:4, to:"VP of AI Operations — TaskUs", subject:"What your clients expect before they ask", body:`Hi [Name],
+  { id:4, to:"VP of AI Operations, TaskUs", subject:"What your clients expect before they ask", body:`Hi [Name],
 
-TaskUs's client base is tech-native, which probably means you're expected to already be running AI infrastructure internally \u2014 not pitching it as a future initiative.
+TaskUs's client base is tech-native, which probably means you're expected to already be running AI infrastructure internally, not pitching it as a future initiative.
 
-I'm from ff Venture Capital, introducing one of our portfolio companies: Onvego, which builds the DCC \u2014 an agentic CX platform that resolves issues end-to-end across CRM, billing, and ERP systems, already proven at enterprise scale.
+I'm from ff Venture Capital, introducing one of our portfolio companies: Onvego, which builds the DCC, an agentic CX platform that resolves issues end-to-end across CRM, billing, and ERP systems, already proven at enterprise scale.
 
-The honest version of the pitch: deeper use cases require integration work with the client's systems, so there's real engineering involved upfront. Where it pays off is afterward \u2014 your CX managers can adjust workflows and logic on their own without looping in engineering for routine changes.
+The honest version of the pitch: deeper use cases require integration work with the client's systems, so there's real engineering involved upfront. Where it pays off is afterward, when your CX managers can adjust workflows and logic on their own without looping in engineering for routine changes.
 
 Given TaskUs's AI ops focus, I think there's a real conversation here, either as an internal capability or something you offer clients directly.
 
@@ -192,11 +196,11 @@ Worth a quick call?
 Best,
 [ffVC Sender Name]
 ff Venture Capital` },
-  { id:5, to:"Chief Innovation Officer — Alorica", subject:"Consistency at 100,000-agent scale", body:`Hi [Name],
+  { id:5, to:"Chief Innovation Officer, Alorica", subject:"Consistency at 100,000-agent scale", body:`Hi [Name],
 
-At Alorica's scale, I'd guess agent quality consistency is a harder problem than agent quantity \u2014 with a workforce this large, variance is the real operational risk.
+At Alorica's scale, I'd guess agent quality consistency is a harder problem than agent quantity. With a workforce this large, variance is the real operational risk.
 
-I'm writing from ff Venture Capital about Onvego, a portfolio company whose Digital Contact Center platform is reducing operational costs by 45% for enterprise clients while handling the high-volume, repeatable interactions autonomously \u2014 password resets, billing adjustments, eligibility checks, order updates.
+I'm writing from ff Venture Capital about Onvego, a portfolio company whose Digital Contact Center platform is reducing operational costs by 45% for enterprise clients while handling the high-volume, repeatable interactions autonomously: password resets, billing adjustments, eligibility checks, order updates.
 
 To set expectations properly: these use cases require integrating with your existing systems, so it's not a plug-and-play install. Once integrated, your team can manage and adjust the underlying logic without ongoing engineering dependency, which is where the consistency gains come from.
 
@@ -205,9 +209,9 @@ I'd love to connect you with the Onvego team for a 20-minute conversation. Would
 Best,
 [ffVC Sender Name]
 ff Venture Capital` },
-  { id:6, to:"SVP of Digital Transformation — SITEL/Sykes", subject:"A deployed win, not another roadmap slide", body:`Hi [Name],
+  { id:6, to:"SVP of Digital Transformation, SITEL/Sykes", subject:"A deployed win, not another roadmap slide", body:`Hi [Name],
 
-A transformation mandate at SITEL's scale usually comes with pressure to show something concrete and deployed \u2014 not another initiative still in planning.
+A transformation mandate at SITEL's scale usually comes with pressure to show something concrete and deployed, not another initiative still in planning.
 
 I'm reaching out from ff Venture Capital. We've backed Onvego, an agentic CX platform already proven at enterprise scale, with 45% opex reduction and meaningful SLA improvement in current deployments.
 
@@ -220,11 +224,11 @@ Would 20 minutes this week work to explore fit?
 Best,
 [ffVC Sender Name]
 ff Venture Capital` },
-  { id:7, to:"VP of Operations — Peak Support", subject:"Proving quality with data, not just QA scores", body:`Hi [Name],
+  { id:7, to:"VP of Operations, Peak Support", subject:"Proving quality with data, not just QA scores", body:`Hi [Name],
 
-Peak's SaaS clients expect more than a high QA score \u2014 they want visibility into what's actually happening on calls. I'd guess that's a recurring ask your team fields.
+Peak's SaaS clients expect more than a high QA score. They want visibility into what's actually happening on calls. I'd guess that's a recurring ask your team fields.
 
-I'm [Name] from ff Venture Capital. One of our portfolio companies, Onvego, builds a Digital Contact Center platform that captures every interaction as structured data \u2014 caller intent, resolution paths, performance trends \u2014 giving you something concrete to show clients beyond a QA percentage.
+I'm [Name] from ff Venture Capital. One of our portfolio companies, Onvego, builds a Digital Contact Center platform that captures every interaction as structured data: caller intent, resolution paths, performance trends, giving you something concrete to show clients beyond a QA percentage.
 
 Worth noting upfront: the deeper automation use cases require integrating with your client systems, so there's setup work involved. Once that's in place, your team can manage playbooks and logic directly without depending on engineering for every change.
 
@@ -235,11 +239,11 @@ Open to a quick call to explore this?
 Best,
 [ffVC Sender Name]
 ff Venture Capital` },
-  { id:8, to:"Chief Technology Officer — Helpware", subject:"What Google and Microsoft expect from a CX vendor", body:`Hi [Name],
+  { id:8, to:"Chief Technology Officer, Helpware", subject:"What Google and Microsoft expect from a CX vendor", body:`Hi [Name],
 
-Enterprise clients like Google and Microsoft likely expect Helpware to already be running on a modern AI stack \u2014 which probably puts you in the position of actively evaluating vendors right now, not just keeping tabs on the space.
+Enterprise clients like Google and Microsoft likely expect Helpware to already be running on a modern AI stack, which probably puts you in the position of actively evaluating vendors right now, not just keeping tabs on the space.
 
-I'm reaching out from ff Venture Capital about Onvego, whose Digital Contact Center platform is live at enterprise scale \u2014 10M+ minutes annually, 72.5% autonomous resolution, 45% opex reduction.
+I'm reaching out from ff Venture Capital about Onvego, whose Digital Contact Center platform is live at enterprise scale: 10M+ minutes annually, 72.5% autonomous resolution, 45% opex reduction.
 
 As a CTO, the detail that matters most: the higher-value use cases require real integration work with existing systems, so this isn't a drop-in tool. Where it pays off is afterward, when your CX managers can adjust workflows and logic independently without filing engineering tickets for routine changes.
 
@@ -248,9 +252,9 @@ Would you be open to a short call this month?
 Best,
 [ffVC Sender Name]
 ff Venture Capital` },
-  { id:9, to:"Head of CX Technology — Fusion CX", subject:"Closing the gap between Gen-AI branding and production", body:`Hi [Name],
+  { id:9, to:"Head of CX Technology, Fusion CX", subject:"Closing the gap between Gen-AI branding and production", body:`Hi [Name],
 
-Fusion has built a strong brand around Gen-AI-powered CX \u2014 which probably means you're the one who has to make sure what's actually in production lives up to that positioning.
+Fusion has built a strong brand around Gen-AI-powered CX, which probably means you're the one who has to make sure what's actually in production lives up to that positioning.
 
 I'm from ff Venture Capital, reaching out about Onvego, a portfolio company building an agentic CX platform that resolves issues end-to-end across 40+ language environments, with live monitoring and structured data capture. Current deployments: 72.5% autonomous resolution, 45% opex reduction, running at national enterprise scale.
 
@@ -261,11 +265,11 @@ Worth a 20-minute call?
 Best,
 [ffVC Sender Name]
 ff Venture Capital` },
-  { id:10, to:"VP of Technology & Automation — MCI (Mass Markets)", subject:"Timing on your tech stack build-out", body:`Hi [Name],
+  { id:10, to:"VP of Technology & Automation, MCI (Mass Markets)", subject:"Timing on your tech stack build-out", body:`Hi [Name],
 
 MCI's recent QA technology investments suggest you're actively building out the tech stack right now and likely benchmarking vendors as part of that process.
 
-I'm reaching out from ff Venture Capital about Onvego, an agentic contact center platform that goes a step beyond QA tooling \u2014 it doesn't just measure what happened on a call, it resolves the call. Already deployed at enterprise scale with 72.5% resolution rates and 45% cost reduction.
+I'm reaching out from ff Venture Capital about Onvego, an agentic contact center platform that goes a step beyond QA tooling. It doesn't just measure what happened on a call, it resolves the call. Already deployed at enterprise scale with 72.5% resolution rates and 45% cost reduction.
 
 One thing worth flagging early: the higher-value use cases require integration with your existing systems, so there's real setup work involved. Once that's done, your team can manage workflows and logic changes without ongoing engineering support.
 
@@ -276,9 +280,9 @@ Would 20 minutes work this week?
 Best,
 [ffVC Sender Name]
 ff Venture Capital` },
-  { id:11, to:"SVP of Partner Success — Arise Virtual Solutions", subject:"Consistency across a 70,000-person gig workforce", body:`Hi [Name],
+  { id:11, to:"SVP of Partner Success, Arise Virtual Solutions", subject:"Consistency across a 70,000-person gig workforce", body:`Hi [Name],
 
-Arise's distributed, gig-based agent model probably makes consistent quality one of your harder ongoing problems \u2014 it's a structurally different challenge than managing an employed workforce.
+Arise's distributed, gig-based agent model probably makes consistent quality one of your harder ongoing problems. It's a structurally different challenge than managing an employed workforce.
 
 I'm reaching out from ff Venture Capital about Onvego, an agentic CX platform that handles high-volume, repeatable interactions autonomously, so human agents are reserved for calls that genuinely need judgment. Proven at scale: 10M+ minutes annually, 72.5% autonomous resolution, 45% opex reduction.
 
@@ -289,9 +293,9 @@ Worth a quick conversation?
 Best,
 [ffVC Sender Name]
 ff Venture Capital` },
-  { id:12, to:"Director of Innovation — Working Solutions", subject:"Automating financial CX without losing compliance control", body:`Hi [Name],
+  { id:12, to:"Director of Innovation, Working Solutions", subject:"Automating financial CX without losing compliance control", body:`Hi [Name],
 
-Financial services CX work \u2014 billing, collections, balance follow-ups \u2014 is high-volume and repetitive, but it's also compliance-sensitive, which probably makes automating it carefully a real constraint for your team, not just a nice-to-have.
+Financial services CX work, including billing, collections, and balance follow-ups, is high-volume and repetitive, but it's also compliance-sensitive, which probably makes automating it carefully a real constraint for your team, not just a nice-to-have.
 
 I'm from ff Venture Capital, introducing Onvego, a portfolio company whose Digital Contact Center platform handles these interactions end-to-end, including direct CRM and billing system actions, not just conversational deflection.
 
@@ -302,11 +306,11 @@ Happy to arrange a brief intro call between your team and Onvego.
 Best,
 [ffVC Sender Name]
 ff Venture Capital` },
-  { id:13, to:"VP of Operations — Qualfon", subject:"Cutting cost without losing what makes Qualfon different", body:`Hi [Name],
+  { id:13, to:"VP of Operations, Qualfon", subject:"Cutting cost without losing what makes Qualfon different", body:`Hi [Name],
 
 Qualfon's people-first reputation probably puts you in a tension that's hard to resolve on your own: pressure to reduce cost, without compromising the agent experience the company is known for.
 
-I'm reaching out from ff Venture Capital on behalf of Onvego, whose Digital Contact Center platform is built to absorb the high-volume, repetitive interactions that wear agents down \u2014 freeing your team for the calls that genuinely need a person. Deployments show 37.5% SLA improvement alongside cost savings.
+I'm reaching out from ff Venture Capital on behalf of Onvego, whose Digital Contact Center platform is built to absorb the high-volume, repetitive interactions that wear agents down, freeing your team for the calls that genuinely need a person. Deployments show 37.5% SLA improvement alongside cost savings.
 
 Worth noting clearly: the higher-impact use cases require integration with your existing systems, so there's setup work involved. The payoff comes afterward, when your operations team can manage logic and workflows directly.
 
@@ -315,13 +319,13 @@ Would love to connect you with the Onvego team for a candid conversation about f
 Best,
 [ffVC Sender Name]
 ff Venture Capital` },
-  { id:14, to:"CEO / President — Five Star Call Centers", subject:"What's already working in Israel, applied to a US BPO your size", body:`Hi [Name],
+  { id:14, to:"CEO / President, Five Star Call Centers", subject:"What's already working in Israel, applied to a US BPO your size", body:`Hi [Name],
 
-At Five Star's size, I'd guess you're personally involved in any decision about adding a new vendor into the contact center stack \u2014 not delegating it three layers down.
+At Five Star's size, I'd guess you're personally involved in any decision about adding a new vendor into the contact center stack, not delegating it three layers down.
 
 I'm [Name] from ff Venture Capital. Onvego, one of our portfolio companies, has proven this model at scale through a partnership with Babcom, a contact center operator in Israel with a profile close to Five Star's: US-style regulated verticals, mid-size, quality-focused.
 
-Onvego's DCC handles repeatable interactions end-to-end \u2014 billing, order status, eligibility, account changes \u2014 while your agents handle the exceptions. To be upfront, the deeper use cases require integrating with your existing systems, which involves real setup work. After that, your team manages workflows and logic on its own.
+Onvego's DCC handles repeatable interactions end-to-end: billing, order status, eligibility, account changes, while your agents handle the exceptions. To be upfront, the deeper use cases require integrating with your existing systems, which involves real setup work. After that, your team manages workflows and logic on its own.
 
 Results from enterprise deployments: 45% lower operational cost, 72.5% resolution rate, 37.5% SLA improvement. SOC 2 and ISO certified.
 
@@ -330,9 +334,9 @@ I'd love to connect you directly with the Onvego founding team. 20 minutes?
 Best,
 [ffVC Sender Name]
 ff Venture Capital` },
-  { id:15, to:"VP of Business Development — OneTouch Direct", subject:"Leads going cold during off-hours and volume spikes", body:`Hi [Name],
+  { id:15, to:"VP of Business Development, OneTouch Direct", subject:"Leads going cold during off-hours and volume spikes", body:`Hi [Name],
 
-OneTouch is paid on sales outcomes, which probably means your real pain point isn't total call volume \u2014 it's leads going cold overnight or during a spike your team can't staff fast enough.
+OneTouch is paid on sales outcomes, which probably means your real pain point isn't total call volume. It's leads going cold overnight or during a spike your team can't staff fast enough.
 
 I'm from ff Venture Capital, flagging Onvego, a portfolio company whose Digital Contact Center platform handles lead qualification, upsell flagging, and warm handoffs to live agents autonomously, around the clock.
 
@@ -345,9 +349,9 @@ Worth a call this week to see how this fits OneTouch's model?
 Best,
 [ffVC Sender Name]
 ff Venture Capital` },
-  { id:16, to:"Director of Service Delivery — Worldwide TechServices", subject:"The repetitive tier-0/1 tickets eating your team's capacity", body:`Hi [Name],
+  { id:16, to:"Director of Service Delivery, Worldwide TechServices", subject:"The repetitive tier-0/1 tickets eating your team's capacity", body:`Hi [Name],
 
-A large share of IT helpdesk volume is usually a small set of repetitive requests \u2014 password resets, access management, provisioning \u2014 that probably eat more of your team's capacity than they should.
+A large share of IT helpdesk volume is usually a small set of repetitive requests, including password resets, access management, and provisioning, that probably eat more of your team's capacity than they should.
 
 I'm from ff Venture Capital. We've invested in Onvego, whose Digital Contact Center platform handles these high-volume, repeatable requests autonomously and executes the actual system actions, escalating cleanly to your agents when something needs human judgment.
 
@@ -358,11 +362,11 @@ Happy to connect you with the Onvego team if this is worth 20 minutes.
 Best,
 [ffVC Sender Name]
 ff Venture Capital` },
-  { id:17, to:"Operations Director — Aloha Contact Center", subject:"Compliance as the real constraint, not just call volume", body:`Hi [Name],
+  { id:17, to:"Operations Director, Aloha Contact Center", subject:"Compliance as the real constraint, not just call volume", body:`Hi [Name],
 
 Healthcare and government clients come with strict compliance requirements, which probably makes security and audit trail a bigger constraint on your team than raw call volume.
 
-I'm reaching out from ff Venture Capital on behalf of Onvego, an agentic CX platform with enterprise-grade security credentials \u2014 SOC 2 Type II, ISO 27001, ISO 27799 \u2014 and prior experience in healthcare and government service environments.
+I'm reaching out from ff Venture Capital on behalf of Onvego, an agentic CX platform with enterprise-grade security credentials, including SOC 2 Type II, ISO 27001, and ISO 27799, and prior experience in healthcare and government service environments.
 
 Onvego DCC handles constituent and patient inquiries end-to-end, with structured data capture and full audit trails. The integration work to connect it to your systems happens upfront; once that's in place, your operations managers can adjust workflows directly.
 
@@ -371,7 +375,7 @@ Worth a brief conversation to explore fit?
 Best,
 [ffVC Sender Name]
 ff Venture Capital` },
-  { id:18, to:"VP of Client Services — Ameridial", subject:"Agent burnout from repetitive, low-judgment calls", body:`Hi [Name],
+  { id:18, to:"VP of Client Services, Ameridial", subject:"Agent burnout from repetitive, low-judgment calls", body:`Hi [Name],
 
 Healthcare eligibility and billing calls are high-volume and rules-based, which probably means agent burnout from repetitive, low-judgment work is a real retention problem for your team.
 
@@ -384,9 +388,9 @@ Deployments at enterprise scale show 45% opex reduction and 72.5% autonomous res
 Best,
 [ffVC Sender Name]
 ff Venture Capital` },
-  { id:19, to:"Head of Contact Center Operations — National Western Financial", subject:"Consistency and auditability in collections calls", body:`Hi [Name],
+  { id:19, to:"Head of Contact Center Operations, National Western Financial", subject:"Consistency and auditability in collections calls", body:`Hi [Name],
 
-Collections and billing dispute calls are repetitive, but they're also compliance-sensitive \u2014 which probably means consistency and auditability matter to your role as much as speed does.
+Collections and billing dispute calls are repetitive, but they're also compliance-sensitive, which probably means consistency and auditability matter to your role as much as speed does.
 
 I'm from ff Venture Capital. Onvego, one of our portfolio companies, has delivered its strongest results in exactly this vertical: financial services CX. Payment collection, invoice follow-ups, billing disputes, and account inquiries handled autonomously, with direct integration into core systems.
 
@@ -399,11 +403,11 @@ Would you be open to a 20-minute call to see it in action?
 Best,
 [ffVC Sender Name]
 ff Venture Capital` },
-  { id:20, to:"CEO / Founder — Contact One Call Center", subject:"Hiring and training costs every time volume spikes", body:`Hi [Name],
+  { id:20, to:"CEO / Founder, Contact One Call Center", subject:"Hiring and training costs every time volume spikes", body:`Hi [Name],
 
-At Contact One's size, I'd guess every call volume spike means a scramble to hire and train fast enough \u2014 a cost and timing problem that's hard to plan around.
+At Contact One's size, I'd guess every call volume spike means a scramble to hire and train fast enough, a cost and timing problem that's hard to plan around.
 
-I'm from ff Venture Capital, introducing Onvego, whose Digital Contact Center platform handles significantly more inbound volume without adding agents \u2014 answering, routing, resolving, and escalating autonomously, with a 72.5% resolution rate in live production.
+I'm from ff Venture Capital, introducing Onvego, whose Digital Contact Center platform handles significantly more inbound volume without adding agents. It answers, routes, resolves, and escalates autonomously, with a 72.5% resolution rate in live production.
 
 To be upfront about what's involved: getting this connected to your phone and CRM systems takes some setup work initially. Once that's done, you and your team can adjust call flows and logic on your own without needing ongoing developer support.
 
@@ -432,7 +436,7 @@ function buildTable() {
       <td style="color:#666;">${b.size}</td>
       <td style="color:#666;">${b.focus}</td>
       <td><span class="${tierClass(b.tier)}">${b.tier}</span></td>
-      <td style="color:#666;">${b.contact}</td>
+      <td style="color:#666;">${b.contact}<br><span style="font-size:11px;">${b.email}</span> ${b.verified ? '<span class="verified-tag">verified</span>' : '<span class="placeholder-tag">placeholder</span>'}</td>
       <td><button class="select-btn" onclick="viewEmail(${b.id-1})">View email</button></td>
     </tr>
   `).join("");
@@ -447,12 +451,14 @@ function buildEmail(idx) {
       <div class="email-header">
         <div class="avatar ${b.ac}">${b.avatar}</div>
         <div>
-          <p class="contact-name">${b.name}</p>
-          <p class="contact-sub">${b.contact}</p>
+          <p class="contact-name">${b.contact}</p>
+          <p class="contact-sub">${b.name}</p>
         </div>
       </div>
       <div class="email-meta">
-        <span class="meta-label">To</span><span class="meta-val">${e.to}</span>
+        <span class="meta-label">Company</span><span class="meta-val">${b.name}</span>
+        <span class="meta-label">Contact</span><span class="meta-val">${b.contact} ${b.verified ? '<span class="verified-tag">verified</span>' : '<span class="placeholder-tag">placeholder</span>'}</span>
+        <span class="meta-label">Email</span><span class="meta-val">${b.email}</span>
         <span class="meta-label">Subject</span><span class="meta-val">${e.subject}</span>
         <span class="meta-label">Why them</span><span class="meta-val">${b.angle}</span>
       </div>
@@ -481,8 +487,9 @@ function nextEmail() {
 }
 
 function copyEmail(idx) {
+  const b = bpos[idx];
   const e = emails[idx];
-  const text = `Subject: ${e.subject}\n\n${e.body}`;
+  const text = `To: ${b.contact} <${b.email}>\nSubject: ${e.subject}\n\n${e.body}`;
   navigator.clipboard.writeText(text).then(() => {
     const btn = document.getElementById(`copy-btn-${idx}`);
     if(btn){ btn.innerHTML = '<i class="ti ti-check"></i> Copied'; setTimeout(()=>{ btn.innerHTML = '<i class="ti ti-copy"></i> Copy email'; }, 2000); }
