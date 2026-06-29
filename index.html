@@ -69,7 +69,7 @@
   <div class="stats">
     <div class="stat"><div class="stat-label">Target BPOs</div><div class="stat-val">20</div></div>
     <div class="stat"><div class="stat-label">Tier A (best fit)</div><div class="stat-val">7</div></div>
-    <div class="stat"><div class="stat-label">Verified contacts</div><div class="stat-val">16</div></div>
+    <div class="stat"><div class="stat-label">Verified contacts</div><div class="stat-val">18</div></div>
     <div class="stat"><div class="stat-label">Custom emails</div><div class="stat-val">20</div></div>
   </div>
 
@@ -134,9 +134,9 @@ const bpos = [
   { id:15, name:"OneTouch Direct", hq:"Tampa, FL", size:"~3,000 agents", focus:"Sales-focused BPO, retail/telco/financial", tier:"A", contact:"Joe Mole, President", email:"joseph.mole@onetouchdirect.com", verified:true, avatar:"OT", ac:"av-purple", angle:"As President, Joe Mole is the right person to evaluate a new AI backend, and OneTouch's sales-outcome model means the revenue angle of Onvego DCC lands directly with him." },
   { id:16, name:"Worldwide TechServices", hq:"Tewksbury, MA", size:"~7,000 agents", focus:"IT helpdesk, tech support, CX", tier:"C", contact:"Lloyd Nolan, President of Global Technology Services", email:"lloyd.nolan@wwts.com", verified:true, avatar:"WT", ac:"av-coral", angle:"IT helpdesk volume is dominated by a small set of repetitive tier-0/1 tickets. This director likely feels that drag on team capacity daily." },
   { id:17, name:"Aloha Contact Center", hq:"Honolulu, HI", size:"~500 agents", focus:"Regional CX, healthcare/gov/utilities", tier:"C", contact:"Operations Director", email:"[name.lastname]@alohacontact.com", verified:false, avatar:"AH", ac:"av-teal", angle:"Healthcare and government clients impose strict compliance requirements. This director's constraint is likely security and audit trail, not just efficiency." },
-  { id:18, name:"Ameridial", hq:"Canton, OH", size:"~2,000 agents", focus:"Inbound/outbound CX, healthcare/non-profit", tier:"B", contact:"VP of Client Services (contact departed)", email:"[name]@ameridial.com", verified:false, avatar:"AD", ac:"av-blue", angle:"Healthcare eligibility and billing calls are high-volume and rules-based. This VP's likely pain point is agent burnout from repetitive, low-judgment calls." },
+  { id:18, name:"Ameridial", hq:"Canton, OH", size:"~2,000 agents", focus:"Inbound/outbound CX, healthcare/non-profit", tier:"B", contact:"C. Vretas (title unconfirmed)", email:"cvretas@ameridial.com", verified:true, avatar:"AD", ac:"av-blue", angle:"Healthcare eligibility and billing calls are high-volume and rules-based. This VP's likely pain point is agent burnout from repetitive, low-judgment calls." },
   { id:19, name:"National Western Financial", hq:"Los Angeles, CA", size:"~1,200 agents", focus:"Financial services CX, insurance, collections", tier:"B", contact:"Head of Contact Center Operations", email:"[name.lastname]@nwfinancial.com", verified:false, avatar:"NW", ac:"av-purple", angle:"Collections and billing dispute calls are repetitive but compliance-sensitive. This role likely needs consistency and auditability as much as speed." },
-  { id:20, name:"Contact One Call Center", hq:"Tucson, AZ", size:"~800 agents", focus:"Live answering, inbound CX, small business clients", tier:"C", contact:"CEO / Founder", email:"[name.lastname]@contactonecallcenter.com", verified:false, avatar:"CO", ac:"av-coral", angle:"A founder at this scale is likely personally constrained by hiring and training costs every time call volume spikes." }
+  { id:20, name:"Contact One Call Center", hq:"Tucson, AZ", size:"~800 agents", focus:"Live answering, inbound CX, small business clients", tier:"C", contact:"John (title unconfirmed)", email:"john@contactonecallcenter.com", verified:true, avatar:"CO", ac:"av-coral", angle:"A founder at this scale is likely personally constrained by hiring and training costs every time call volume spikes." }
 ];
 
 const emails = [
@@ -375,7 +375,7 @@ Worth a brief conversation to explore fit?
 Best,
 [ffVC Sender Name]
 ff Venture Capital` },
-  { id:18, to:"VP of Client Services, Ameridial", subject:"Agent burnout from repetitive, low-judgment calls", body:`Hi [Name],
+  { id:18, to:"C. Vretas, Ameridial", subject:"Agent burnout from repetitive, low-judgment calls", body:`Hi [Name],
 
 Healthcare eligibility and billing calls are high-volume and rules-based, which probably means agent burnout from repetitive, low-judgment work is a real retention problem for your team.
 
@@ -403,7 +403,7 @@ Would you be open to a 20-minute call to see it in action?
 Best,
 [ffVC Sender Name]
 ff Venture Capital` },
-  { id:20, to:"CEO / Founder, Contact One Call Center", subject:"Hiring and training costs every time volume spikes", body:`Hi [Name],
+  { id:20, to:"John, Contact One Call Center", subject:"Hiring and training costs every time volume spikes", body:`Hi [Name],
 
 At Contact One's size, I'd guess every call volume spike means a scramble to hire and train fast enough, a cost and timing problem that's hard to plan around.
 
